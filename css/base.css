@@ -1,0 +1,72 @@
+body {
+    /*Opacity of content within body*/
+    opacity: .8;
+    /*Opacity of background itself */
+    background-color: offwhite;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', serif;
+}
+
+#mainHeading,
+#subheading,
+#statusDiv {
+    text-align: center;
+    font-family: 'Roboto', serif;
+    font-weight: 100;
+}
+
+#mainHeading {
+    font-size: 3em;
+    border: solid 2px white;
+    text-transform: uppercase;
+    color: offblack;
+    margin: 0;
+    margin-top: .5em;
+}
+
+#subheading {
+    font-size: 1.2em;
+    border: solid 2px white;
+    font-style: italic;
+    text-transform: uppercase;
+    color: offblack;
+    margin: 0 0 1em 0;
+}
+
+#statusDiv {
+    font-size: 1.3em;
+}
+
+#status {
+    color: green;
+    font-weight: bold;
+}
+
+#map {
+    height: 400px;
+    max-height: 60%;
+}
+
+@media(min-width: 64em) {
+    html,
+    #map,
+    .col,
+    .col-md-8,
+    .row,
+    .container,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    html {
+        margin: 3em;
+    }
+    .headings {
+        margin-top: 10em;
+    }
+    #map {
+        max-height: 85%;
+    }
+}
