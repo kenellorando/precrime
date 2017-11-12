@@ -1,5 +1,5 @@
-# precrime
-Precrime is an application which gathers data from the Chicago Police Department's most recent police reports, and marks the data on a map generated with Google Maps. Utilizing the user's geolocation, Precrime will detect if the user is approaching an area of high crime and warn them, preventing crime before it can happen.
+# precrime https://kenellorando.github.io/precrime/
+Precrime is an application which gathers data from the Chicago Police Department's most recent reports, and marks the data on a map generated with Google Maps. Utilizing the user's geolocation, Precrime will detect if the user is approaching an area of high crime and warn them, preventing crime before it can happen.
 
 Created at ScarletHacks - November 11-12, 2017
 
