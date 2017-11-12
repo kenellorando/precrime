@@ -8,12 +8,6 @@ function getCurrentLocation() {
                 lng: position.coords.longitude
             };
         });
-        for (i = 0; i < data.length; i++) {
-            if (parseFloat(data[i].latitude).toFixed(3) - parseFloat(pos.lat).toFixed(3) < 1 ||
-                parseFloat(data[i].longitude).toFixed(3) - parseFloat(pos.lng).toFixed(3) < 0.001) {
-                alert("Game Over!");
-            }
-        }
     });
 }
 
@@ -39,8 +33,6 @@ function setLocation() {
                     break;
                 }
             }
-
-            console.log("Refreshing position: " + pos.lat + " " + pos.lng);
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
@@ -70,7 +62,8 @@ function initMap() {
 
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
-            center: uluru
+            center: uluru,
+			mapTypeId: 'terrain'
         });
 
 
@@ -87,10 +80,23 @@ function initMap() {
             var m = new Date();
             if ((parseFloat(data[i].date.substring(5, 7)) == (m.getMonth() + 1)) &&
                 (data[i].primary_type == "ROBBERY" || data[i].primary_type == "ASSAULT")) {
-                var marker = new google.maps.Marker({
-                    position: uluru,
-                    map: map
-                });
+					var bounds = {
+      						east:Number(parseFloat(lo).toFixed(3))+0.001,
+							north: Number(parseFloat(la).toFixed(3))+0.001,
+							south: Number(parseFloat(la).toFixed(3))-0.001,
+      						west: Number(parseFloat(lo).toFixed(3))-0.001
+						}
+					console.log(bounds)
+                 	var rectangle = new google.maps.Rectangle({
+    					strokeColor: '#FF0000',
+    					strokeOpacity: 0.8,
+    					strokeWeight: 2,
+    					fillColor: '#FF0000',
+    					fillOpacity: 0.35,
+    					map: map,
+    					bounds: bounds
+  				});
+				rectangle.setMap(map);
             }
         }
     });
