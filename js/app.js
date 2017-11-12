@@ -25,7 +25,8 @@ function setLocation() {
                         Math.abs(parseFloat(pos.lat).toFixed(3))) < 0.001 &&
                     Math.abs(Math.abs(parseFloat(data[i].longitude).toFixed(3)) -
                         Math.abs(parseFloat(pos.lng).toFixed(3))) < 0.001) {
-                    alert("You are closing dangerous area!");
+                    document.getElementById("status").innerHTML = "DANGEROUS";
+                    document.getElementById("status").style.color = "red";
                     console.log(Math.abs(Math.abs(parseFloat(data[i].latitude).toFixed(3)) -
                             Math.abs(parseFloat(pos.lat).toFixed(3))),
                         Math.abs(Math.abs(parseFloat(data[i].longitude).toFixed(3)) -
@@ -63,7 +64,7 @@ function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: uluru,
-			mapTypeId: 'terrain'
+            mapTypeId: 'terrain'
         });
 
 
