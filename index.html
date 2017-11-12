@@ -33,8 +33,8 @@
 
     <script>
         var map, infoWindow;
-		
-		function setLocation() {
+
+        function setLocation() {
             navigator.geolocation.getCurrentPosition(function (position) {
 
                 var pos = {
@@ -56,42 +56,54 @@
             });
             setTimeout(setLocation, 3000);
         }
-		
-         function initMap() {
-		$.getJSON('https://data.cityofchicago.org/resource/d62x-nvdr.json', function(data) {
-    		console.log(data);
-			var la = data[0].latitude;
-			var lo = data[0].longitude;
-			console.log(la, lo);
-			la = parseFloat(la).toFixed(3);
-			lo = parseFloat(lo).toFixed(3);
-			
-			var uluru = {lat: parseFloat(la), lng: parseFloat(lo)};
-			var map = new google.maps.Map(document.getElementById('map'), {
-          		zoom: 10,
-          		center: uluru
-        	});
-			
-			for (i = 0; i < data.length; i++) { 
-    			var crime = data[i].primary_type
-				var la = data[i].latitude
-				var lo = data[i].longitude
-				la = parseFloat(la).toFixed(3);
-				lo = parseFloat(lo).toFixed(3);
-				var uluru = {lat: parseFloat(la), lng: parseFloat(lo)}
-				var m = new Date();
-				if((parseFloat(data[i].date.substring(5, 7)) == (m.getMonth()+1)) &&
-				(data[i].primary_type == "ROBBERY" || data[i].primary_type == "ASSAULT")){
-					var marker = new google.maps.Marker({
-          				position: uluru,
-          				map: map
-        			});
-				}
-			}
-		});
-		infoWindow = new google.maps.InfoWindow;
-        setLocation();
-	  }
+
+        function initMap() {
+            
+
+            infoWindow = new google.maps.InfoWindow;
+            setLocation();
+
+            $.getJSON('https://data.cityofchicago.org/resource/d62x-nvdr.json', function (data) {
+                console.log(data);
+                var la = data[0].latitude;
+                var lo = data[0].longitude;
+                console.log(la, lo);
+                la = parseFloat(la).toFixed(3);
+                lo = parseFloat(lo).toFixed(3);
+
+                var uluru = {
+                    lat: parseFloat(la),
+                    lng: parseFloat(lo)
+                };
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru
+            });
+
+
+                for (i = 0; i < data.length; i++) {
+                    var crime = data[i].primary_type
+                    var la = data[i].latitude
+                    var lo = data[i].longitude
+                    la = parseFloat(la).toFixed(3);
+                    lo = parseFloat(lo).toFixed(3);
+                    var uluru = {
+                        lat: parseFloat(la),
+                        lng: parseFloat(lo)
+                    }
+                    var m = new Date();
+                    if ((parseFloat(data[i].date.substring(5, 7)) == (m.getMonth() + 1)) &&
+                        (data[i].primary_type == "ROBBERY" || data[i].primary_type == "ASSAULT")) {
+                        var marker = new google.maps.Marker({
+                            position: uluru,
+                            map: map
+                        });
+                    }
+                }
+            });
+
+        }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYe_dx1Qi7AMSplAwgxscYbkLo32ZdpPc&callback=initMap">
     </script>
