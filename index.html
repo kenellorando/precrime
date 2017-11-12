@@ -32,47 +32,47 @@
                 <div id="statusDiv">Your current location is:
                     <span id="status">SAFE</span>
                 </div>
-                <div id="about">Precrime is a predictive policing tool which gathers data from the
-                    <a href="https://data.cityofchicago.org/Public-Safety/Crimes-2017/d62x-nvdr">Chicago Police Department's</a> most recent reports, and marks the data on a map generated with
-                    <a href="https://developers.google.com/maps/">Google Maps</a>. Utilizing the user's geolocation, Precrime will detect if the user is approaching an
-                    area of high crime and warn them, preventing crime before it can happen.
-                    <div id="credits">Created by
-                        <a href="https://github.com/zguo19">Zheng Guo</a>,
-                        <a href="https://github.com/PatrickYang93">Patrick Yang</a>, and
-                        <a href="https://github.com/kenellorando">Ken Ellorando</a>.</div>
-                    <!-- Rounded switch -->
-                    <div id="switch">
-                        <label class="switch">
-                            <input id="nightmodeCheck" type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div id="switchLabel">Toggle Nightmode</div>
-
+                <div id="about">Precrime creates maps with the
+                    <a href="https://developers.google.com/maps/">Google Maps API</a>, utilizing crime data provided by the
+                    <a href="https://data.cityofchicago.org/Public-Safety/Crimes-2017/d62x-nvdr">Chicago Police Department</a>. Using your device's geolocation, Precrime can determine if your location
+                    is a potentially dangerous area to be.</div>
+                <div id="credits">Created by
+                    <a href="https://github.com/zguo19">Zheng Guo</a>,
+                    <a href="https://github.com/PatrickYang93">Patrick Yang</a>, and
+                    <a href="https://github.com/kenellorando">Ken Ellorando</a>.</div>
+                <!-- Rounded switch -->
+                <div id="switch">
+                    <label class="switch">
+                        <input id="nightmodeCheck" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
                 </div>
-                <div class="col-md-8">
-                    <div id="map"></div>
-                    <div id="about-m">Precrime creates maps using the
-                        <a href="https://developers.google.com/maps/">Google Maps API</a> utilizing crime data provided by the
-                        <a href="https://data.cityofchicago.org/Public-Safety/Crimes-2017/d62x-nvdr">Chicago Police Department</a>. Using your device's geolocation, Precrime can determine if your location
-                        is a potentially dangerous area to be.</div>
-                    <div id="credits-m">Created by
-                        <a href="https://github.com/zguo19">Zheng Guo</a>,
-                        <a href="https://github.com/PatrickYang93">Patrick Yang</a>, and
-                        <a href="https://github.com/kenellorando">Ken Ellorando</a>.</div>
-                </div>
+                <div id="switchLabel">Toggle Nightmode</div>
 
             </div>
-            <div id="copyright">
-                <p id=tex>© 2017 PRECRIME ALL RIGHTS RESERVED</p>
+            <div class="col-md-8">
+                <div id="map"></div>
+                <div id="about-m">Precrime creates maps using the
+                    <a href="https://developers.google.com/maps/">Google Maps API</a> utilizing crime data provided by the
+                    <a href="https://data.cityofchicago.org/Public-Safety/Crimes-2017/d62x-nvdr">Chicago Police Department</a>. Using your device's geolocation, Precrime can determine if your location
+                    is a potentially dangerous area to be.</div>
+                <div id="credits-m">Created by
+                    <a href="https://github.com/zguo19">Zheng Guo</a>,
+                    <a href="https://github.com/PatrickYang93">Patrick Yang</a>, and
+                    <a href="https://github.com/kenellorando">Ken Ellorando</a>.</div>
             </div>
+
         </div>
+        <div id="copyright">
+            <p id=tex>© 2017 PRECRIME ALL RIGHTS RESERVED</p>
+        </div>
+    </div>
 
-        <!-- Google Maps API -->
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYe_dx1Qi7AMSplAwgxscYbkLo32ZdpPc&callback=initMap">
-        </script>
-        <!-- app.js -->
-        <script src="./js/app.js" type="text/javascript"></script>
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYe_dx1Qi7AMSplAwgxscYbkLo32ZdpPc&callback=initMap">
+    </script>
+    <!-- app.js -->
+    <script src="./js/app.js" type="text/javascript"></script>
 </body>
 
 </html>
