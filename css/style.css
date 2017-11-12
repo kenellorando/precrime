@@ -1,18 +1,14 @@
-    /* Always set the map height explicitly to define the size of the div
-    * element that contains the map. */
+html,
+body {
+    background-color: tomato;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-    #map {
-        margin-top : 130px; 
-        height: 100%;
-        max-height : 70%;
-        border : outset 5px;
-    }
-    /* Optional: Makes the sample page fill the window. */
-
-    html,
-    body {
-        background-color: tomato;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
+#map {
+    margin-top: 130px;
+    height: 100%;
+    max-height: 70%;
+    border: outset 5px;
+}
