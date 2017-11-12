@@ -35,7 +35,7 @@
         var map, infoWindow;
 
         function setLocation() {
-            navigator.geolocation.getCurrentPosition(function (position) {
+            navigator.geolocation.watchPosition(function (position) {
 
                 var pos = {
                     lat: position.coords.latitude,
@@ -54,12 +54,9 @@
             }, function () {
                 handleLocationError(true, infoWindow, map.getCenter());
             });
-            setTimeout(setLocation, 3000);
         }
 
         function initMap() {
-            
-
             infoWindow = new google.maps.InfoWindow;
             setLocation();
 
