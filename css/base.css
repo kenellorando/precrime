@@ -38,6 +38,10 @@ body {
     font-size: 1.3em;
 }
 
+#about, #credits {
+    margin: 2em 0;
+}
+
 #status {
     color: green;
     font-weight: bold;
@@ -60,11 +64,12 @@ body {
         margin: 0;
         padding: 0;
     }
+
     html {
         margin: 3em;
     }
     .headings {
-        margin-top: 10em;
+        margin-top: 6em;
     }
     #map {
         max-height: 85%;

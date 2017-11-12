@@ -41,8 +41,6 @@ function setLocation() {
             }
 
             console.log("Refreshing position: " + pos.lat + " " + pos.lng);
-            document.getElementById("coords").append("Refreshing position: " + pos.lat + " " + pos.lng);
-            document.getElementById("coords").append("\n");
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
