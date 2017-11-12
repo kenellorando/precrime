@@ -29,6 +29,7 @@
 <body>
     <button id="getLocationBtn">Get Location</button>
     <div id="map"></div>
+    <div id="coords"></div>
 
     <script>
         var map, infoWindow;
@@ -39,40 +40,35 @@
                     lat: -34.397,
                     lng: 150.644
                 },
-                zoom: 11
+                zoom: 14
             });
             infoWindow = new google.maps.InfoWindow;
+            setLocation();
         }
-        $("#getLocationBtn").on("click", function () {
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
-                    infoWindow.open(map);
-                    map.setCenter(pos);
-                }, function () {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
 
 
-            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        function setLocation() {
+            navigator.geolocation.getCurrentPosition(function (position) {
+
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                console.log("Refreshing position: " + pos.lat + " " + pos.lng);
+                document.getElementById("coords").append("Refreshing position: " + pos.lat + " " + pos.lng);
+                document.getElementById("coords").append("\n");
+
+
                 infoWindow.setPosition(pos);
-                infoWindow.setContent(browserHasGeolocation ?
-                    'Error: The Geolocation service failed.' :
-                    'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.setContent('Location found.');
                 infoWindow.open(map);
-            }
-        })
+                map.setCenter(pos);
+            }, function () {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+            setTimeout(setLocation, 3000);
+        }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYe_dx1Qi7AMSplAwgxscYbkLo32ZdpPc&callback=initMap">
     </script>
